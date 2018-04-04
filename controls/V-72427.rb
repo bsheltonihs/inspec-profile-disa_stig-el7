@@ -49,14 +49,12 @@ configuring the device itself (management).
     Requires further clarification from NIST.
 
     Satisfies: SRG-OS-000375-GPOS-00160, SRG-OS-000375-GPOS-00161,
-SRG-OS-000375-GPOS-0016.
-  "
-if package.('sssd').installed?
+SRG-OS-000375-GPOS-0016."
+if package('sssd').installed?
   impact 0.5
 else
   impact 0.0
 end
-
   tag "gtitle": "SRG-OS-000375-GPOS-00160"
   tag "gid": "V-72427"
   tag "rid": "SV-87051r2_rule"
