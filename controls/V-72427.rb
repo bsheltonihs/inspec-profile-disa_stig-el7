@@ -92,7 +92,7 @@ Modify all of the services lines in /etc/sssd/sssd.conf to include pam."
      end if package('sssd').installed?
   end if package('sssd').installed?
 
-  describe "The SSSD Package is not installed on the system" do
-    skip "This control is Not Appliciable without the SSSD Package installed"
-  end if !package.('sssd').installed?
+  describe "The `sssd` package is not installed" do
+    skip "The `sssd` package is not installed, this control is Not Applicable"
+  end if !package('sssd').installed?
 end
