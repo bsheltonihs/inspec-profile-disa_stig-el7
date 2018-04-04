@@ -65,12 +65,6 @@ aggregation system, this is a finding."
   tag "fix": "Modify the \"/etc/rsyslog.conf\" file to remove the \"ModLoad imtcp\"
 configuration line, or document the system as being used for log aggregation."
 
-LOG_AGGREGATION_SERVER = attribute(
-  'log_aggregation_server',
-  description: 'The system is intented to be a log aggregation server.',
-  default: false
-)
-
   if LOG_AGGREGATION_SERVER
     describe file('/etc/rsyslog.conf') do
       its('content') { should match %r{^\$ModLoad\s+imtcp.*\n?$} }
