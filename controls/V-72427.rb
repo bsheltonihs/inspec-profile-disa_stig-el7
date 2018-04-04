@@ -84,14 +84,13 @@ Modify all of the services lines in /etc/sssd/sssd.conf to include pam."
 # its('services") doesn't appear to be working properly
 # added a test with grep to make sure one will pass if pam exists.
   describe.one do
-     describe parse_config_file('/etc/sssd/sssd.conf') do
-       its('services') { should include 'pam' }
-     end if package('sssd').installed?
-     describe command("grep -i -E 'services(\s)*=(\s)*(.+*)pam' /etc/sssd/sssd.conf") do
-       its('stdout.strip') { should include 'pam' }
-     end if package('sssd').installed?
+    describe parse_config_file('/etc/sssd/sssd.conf') do
+      its('services') { should include 'pam' }
+    end if package('sssd').installed?
+    describe command("grep -i -E 'services(\s)*=(\s)*(.+*)pam' /etc/sssd/sssd.conf") do
+      its('stdout.strip') { should include 'pam' }
+    end if package('sssd').installed?
   end if package('sssd').installed?
-
   describe "The `sssd` package is not installed" do
     skip "The `sssd` package is not installed, this control is Not Applicable"
   end if !package('sssd').installed?
