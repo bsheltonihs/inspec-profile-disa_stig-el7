@@ -95,5 +95,5 @@ Add the setting to lock the session idle delay:
   end if package('gnome-desktop3').installed?
   describe "The GNOME desktop is not installed" do
     skip "The GNOME desktop is not installed, this control is Not Applicable"
-  end if !package.('gnome-desktop3').installed?
+  end if !package('gnome-desktop3').installed?
 end
